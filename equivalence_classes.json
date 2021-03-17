@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "1936712f-66c4-497e-ad7a-3ccdd15e0e0d",
+		"name": "Equivalence classes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "equivalence_classes_age_euro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"var jsoneData = JSON.parse(responseBody);\r",
+							"var request_data = request.data;\r",
+							"var req_age1 = request_data.age;\r",
+							"var resp_age1 = jsoneData.age;\r",
+							"var resp_age_type = jsoneData.age_type\r",
+							"var underage ='underage'\r",
+							"var adult ='adult'\r",
+							"var antiquity='antiquity'\r",
+							"if (0 <= req_age1 && req_age1 <= 17)\r",
+							"{\r",
+							"    pm.test(\"underage = true\", function () {\r",
+							"   pm.expect(resp_age_type).to.eql((underage));\r",
+							"});\r",
+							" } else {\r",
+							" if (18 <= req_age1 && req_age1 <= 50)\r",
+							"{\r",
+							"    pm.test(\"adult = true\", function () {\r",
+							"   pm.expect(resp_age_type).to.eql((adult));\r",
+							"});\r",
+							" } else {\r",
+							" if (51 <= req_age1 && req_age1 <= 100)\r",
+							"{\r",
+							"    pm.test(\"antiquity = true\", function () {\r",
+							"   pm.expect(resp_age_type).to.eql((antiquity));\r",
+							"});\r",
+							"}else {\r",
+							" if (req_age1 >= 100)\r",
+							"{\r",
+							"    pm.test(\"age = valid value\", function () {\r",
+							"   pm.expect(resp_age_type).to.eql((antiquity ));\r",
+							"});\r",
+							" } else {\r",
+							"     pm.test(\"The value outside the equivalence classes must not match resp_age_type antiquity\", function () {\r",
+							"   pm.expect(resp_age_type).not.eql((antiquity));\r",
+							"});\r",
+							"pm.test(\"The value outside the equivalence classes must not match resp_age_type adult\", function () {\r",
+							"   pm.expect(resp_age_type).not.eql((adult));\r",
+							"});pm.test(\"The value outside the equivalence classes must not match resp_age_type underage\", function () {\r",
+							"   pm.expect(resp_age_type).not.eql((underage));\r",
+							"});\r",
+							"\r",
+							" }\r",
+							" }\r",
+							" }\r",
+							" }\r",
+							" pm.test(\"req_age1 = resp_age1\", function () {\r",
+							"   pm.expect(resp_age1).to.eql((req_age1));\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "-1",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://116.203.27.46:5002/age_europe",
+					"protocol": "http",
+					"host": [
+						"116",
+						"203",
+						"27",
+						"46"
+					],
+					"port": "5002",
+					"path": [
+						"age_europe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "equivalence_classes_age_usd",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"var jsoneData = JSON.parse(responseBody);\r",
+							"var request_data = request.data;\r",
+							"var req_age1 = request_data.age;\r",
+							"var resp_age1 = jsoneData.age;\r",
+							"var resp_age_type = jsoneData.age_type\r",
+							"var underage ='underage'\r",
+							"var adult ='adult'\r",
+							"var antiquity='antiquity'\r",
+							"if (0 <= req_age1 && req_age1 <= 20)\r",
+							"{\r",
+							"    pm.test(\"underage = true\", function () {\r",
+							"   pm.expect(resp_age_type).to.eql((underage));\r",
+							"});\r",
+							" } else {\r",
+							" if (21 <= req_age1 && req_age1 <= 50)\r",
+							"{\r",
+							"    pm.test(\"adult = true\", function () {\r",
+							"   pm.expect(resp_age_type).to.eql((adult));\r",
+							"});\r",
+							" } else {\r",
+							" if (51 <= req_age1 && req_age1 <= 100)\r",
+							"{\r",
+							"    pm.test(\"antiquity = true\", function () {\r",
+							"   pm.expect(resp_age_type).to.eql((antiquity));\r",
+							"});\r",
+							"}else {\r",
+							" if (req_age1 >= 100)\r",
+							"{\r",
+							"    pm.test(\"age = valid value\", function () {\r",
+							"   pm.expect(resp_age_type).to.eql((antiquity ));\r",
+							"});\r",
+							" } else {\r",
+							"     pm.test(\"The value outside the equivalence classes must not match resp_age_type antiquity\", function () {\r",
+							"   pm.expect(resp_age_type).not.eql((antiquity));\r",
+							"});\r",
+							"pm.test(\"The value outside the equivalence classes must not match resp_age_type adult\", function () {\r",
+							"   pm.expect(resp_age_type).not.eql((adult));\r",
+							"});pm.test(\"The value outside the equivalence classes must not match resp_age_type underage\", function () {\r",
+							"   pm.expect(resp_age_type).not.eql((underage));\r",
+							"});\r",
+							"\r",
+							" }\r",
+							" }\r",
+							" }\r",
+							" }\r",
+							" pm.test(\"req_age1 = resp_age1\", function () {\r",
+							"   pm.expect(resp_age1).to.eql((req_age1));\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "18",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://116.203.27.46:5002/age_usa",
+					"protocol": "http",
+					"host": [
+						"116",
+						"203",
+						"27",
+						"46"
+					],
+					"port": "5002",
+					"path": [
+						"age_usa"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
